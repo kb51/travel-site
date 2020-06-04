@@ -1,29 +1,11 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { List, Image } from 'semantic-ui-react';
 import { Container, Title } from './Destinations.styles.js';
-// @ts-ignore
-// export const CountryContext = createContext();
-
-// export function CountryProvider({ children }) {
-//   const [countries, setCountries] = useState([]);
-
-//   useEffect(() => {
-//     fetch('https://restcountries.eu/rest/v2/all')
-//       .then((res) => res.json())
-//       .then((json) => {
-//         setCountries(json);
-//       });
-//   }, []);
-
-//   return (
-//     <CountryContext.Provider value={[countries, setCountries]}>
-//       {children}
-//     </CountryContext.Provider>
-//   );
-// }
+import { CountryContext } from '../../contexts/CountryContext.js';
 
 function Destinations() {
   const [countries, setCountries] = useState([]);
+  const [filterValue, setFilterValue] = useState('A');
 
   useEffect(() => {
     fetch('https://restcountries.eu/rest/v2/all')
@@ -33,38 +15,57 @@ function Destinations() {
       });
   }, []);
 
-  // const selectOptions = countries.map((country) => {
-  //   return {
-  //     value: country,
-  //     // @ts-ignore
-  //     label: country.name,
-  //   };
-  // });
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-  // console.log('selectoptions:', selectOptions);
+  const filteredCountries = countries.filter(
+    (country: any) => country.name[0] === filterValue
+  );
+
+  console.log(filterValue);
 
   return (
     <>
       <Container>
         <Title>Destinations</Title>
-        <List>
-          {console.log(countries)}
-          {countries.map((country: any) => (
-            <List.Item>{country.name}</List.Item>
+        <List horizontal>
+          {alphabet.map((letter: string) => (
+            <List.Item as="a" onClick={() => setFilterValue(letter)}>
+              {letter}
+            </List.Item>
           ))}
-          {/* <List.Item>
-            <Image avatar src="/images/avatar/small/matthew.png" />
-            <List.Content>
-              <List.Header as="a">Matthew</List.Header>
-              <List.Description>
-                Last seen watching{' '}
-                <a>
-                  <b>The Godfather Part 2</b>
-                </a>{' '}
-                yesterday.
-              </List.Description>
-            </List.Content>
-          </List.Item> */}
+        </List>
+        <List>
+          {filteredCountries.length ? (
+            filteredCountries.map((country: any) => (
+              <List.Item>
+                <List.Content>
+                  <List.Header>
+                    <a>{country.name}</a>, {country.region}.
+                  </List.Header>
+                  <List.Description>
+                    Capital city:{' '}
+                    <a>
+                      <b>{country.capital}</b>
+                    </a>{' '}
+                    .
+                  </List.Description>
+                </List.Content>
+              </List.Item>
+            ))
+          ) : (
+            <List.Item>
+              <Image
+                avatar
+                src="https://cdn.iconscout.com/icon/premium/png-512-thumb/nothing-found-1-601278.png"
+              />
+              <List.Content>
+                <List.Header>No countries found!</List.Header>
+                <List.Description>
+                  Select a different letter above.
+                </List.Description>
+              </List.Content>
+            </List.Item>
+          )}
         </List>
       </Container>
     </>
