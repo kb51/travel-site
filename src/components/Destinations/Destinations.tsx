@@ -1,7 +1,7 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { List, Image } from 'semantic-ui-react';
 import { Container, Title } from './Destinations.styles.js';
-import { CountryContext } from '../../contexts/CountryContext.js';
+// import { CountryContext } from '../../contexts/CountryContext.js';
 
 function Destinations() {
   const [countries, setCountries] = useState([]);
