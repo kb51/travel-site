@@ -5,7 +5,7 @@ function Home() {
   return (
     <>
       <Container>
-        <Title>Home</Title>
+        <Title>GlobeTrotter</Title>
       </Container>
     </>
   );
