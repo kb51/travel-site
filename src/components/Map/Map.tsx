@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Title } from './Map.styles';
 import ReactMapGL from 'react-map-gl';
 
-function Map() {
+export const Map = () => {
   const [viewport, setViewport] = useState({
     latitude: 51.4934,
     longitude: -0.0005,
@@ -29,6 +29,4 @@ function Map() {
       </Container>
     </>
   );
-}
-
-export default Map;
+};

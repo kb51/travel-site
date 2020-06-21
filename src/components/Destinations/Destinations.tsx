@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { List, Image } from 'semantic-ui-react';
-import { Container, Title } from './Destinations.styles.js';
+import { Container, Title } from './Destinations.styles';
 // import { CountryContext } from '../../contexts/CountryContext.js';
 
-function Destinations() {
+export const Destinations = () => {
   const [countries, setCountries] = useState([]);
   const [filterValue, setFilterValue] = useState('A');
 
@@ -70,6 +70,4 @@ function Destinations() {
       </Container>
     </>
   );
-}
-
-export default Destinations;
+};

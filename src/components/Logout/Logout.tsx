@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Title } from './Logout.styles.js';
+import { Container, Title } from './Logout.styles';
 
-function Itineraries() {
+export const Logout = () => {
   return (
     <>
       <Container>
@@ -9,6 +9,4 @@ function Itineraries() {
       </Container>
     </>
   );
-}
-
-export default Itineraries;
+};

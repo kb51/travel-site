@@ -1,14 +1,16 @@
 import React from 'react';
-import { Container, Title } from './Home.styles.js';
+import { Container, Title } from './Home.styles';
+import { InfoSection } from '../InfoSection';
 
-function Home() {
+export const Home = () => {
   return (
     <>
       <Container>
         <Title>GlobeTrotter</Title>
       </Container>
+      <InfoSection />
+      <InfoSection />
+      <InfoSection />
     </>
   );
-}
-
-export default Home;
+};

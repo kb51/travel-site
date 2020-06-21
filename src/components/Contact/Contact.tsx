@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Title } from './Contact.styles.js';
+import { Container, Title } from './Contact.styles';
 
-function Contact() {
+export const Contact = () => {
   return (
     <>
       <Container>
@@ -9,6 +9,4 @@ function Contact() {
       </Container>
     </>
   );
-}
-
-export default Contact;
+};

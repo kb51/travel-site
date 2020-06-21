@@ -4,7 +4,7 @@ import { Container } from './NavBar.styles';
 import { Input, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-function NavBar() {
+export const NavBar = () => {
   // @ts-ignore
   const [activeItem, setActiveItem] = useState('');
 
@@ -77,6 +77,4 @@ function NavBar() {
       </Menu>
     </Container>
   );
-}
-
-export default NavBar;
+};

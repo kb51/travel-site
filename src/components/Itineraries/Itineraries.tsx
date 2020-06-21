@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Title } from './Itineraries.styles.js';
+import { Container, Title } from './Itineraries.styles';
 import { Form } from 'semantic-ui-react';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-function Itineraries() {
+export const Itineraries = () => {
   const [countries, setCountries] = useState([]);
   const [date, setDate] = useState(new Date());
 
@@ -67,6 +67,4 @@ function Itineraries() {
       </Container>
     </>
   );
-}
-
-export default Itineraries;
+};

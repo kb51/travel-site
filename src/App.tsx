@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/Home';
-import NavBar from './components/NavBar';
+import { Home } from './components/Home';
+import { NavBar } from './components/NavBar';
 import { Content } from './App.styles';
-import Itineraries from './components/Itineraries';
-import Destinations from './components/Destinations';
-import Map from './components/Map';
-import Contact from './components/Contact';
-import Logout from './components/Logout';
+import { Itineraries } from './components/Itineraries';
+import { Destinations } from './components/Destinations';
+import { Map } from './components/Map';
+import { Contact } from './components/Contact';
+import { Logout } from './components/Logout';
 
 export default function App() {
   return (
