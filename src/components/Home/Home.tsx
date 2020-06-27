@@ -8,9 +8,21 @@ export const Home = () => {
       <Container>
         <Title>GlobeTrotter</Title>
       </Container>
-      <InfoSection />
-      <InfoSection />
-      <InfoSection />
+      <InfoSection
+        path="/map"
+        title="Map"
+        paragraph="Use the map to build up a record of places you have been and places you wish to go to"
+      />
+      <InfoSection
+        path="/destinations"
+        title="Destinations"
+        paragraph="Check out destinations of the world and shared itineraries from other users"
+      />
+      <InfoSection
+        path="/itineraries"
+        title="Itineraries"
+        paragraph="Plan your trip and add your own custom itineraries"
+      />
     </>
   );
 };
