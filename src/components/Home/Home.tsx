@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Title } from './Home.styles';
 import { InfoSection } from '../InfoSection';
+import { Newsletter } from '../Newsletter';
 
 export const Home = () => {
   return (
@@ -23,6 +24,7 @@ export const Home = () => {
         title="Itineraries"
         paragraph="Plan your trip and add your own custom itineraries"
       />
+      <Newsletter />
     </>
   );
 };

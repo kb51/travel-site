@@ -11,6 +11,7 @@ export const Container = styled.div`
     ),
     url('https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
       no-repeat;
+  background-size: cover;
   height: 100vh;
   margin-left: -20px;
   margin-right: -20px;
