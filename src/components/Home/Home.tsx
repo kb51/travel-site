@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Title } from './Home.styles';
 import { InfoSection } from '../InfoSection';
 import { Newsletter } from '../Newsletter';
+import { ScrollArrow } from '../ScrollArrow';
 
 export const Home = () => {
   return (
@@ -25,6 +26,7 @@ export const Home = () => {
         paragraph="Plan your trip and add your own custom itineraries"
       />
       <Newsletter />
+      <ScrollArrow/>
     </>
   );
 };
