@@ -5,9 +5,11 @@ export const Container = styled.div`
   height: 50vh;
   margin: -20px;
   padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20vw;
+  padding-right: 20vw;
 `;
 
-export const ImageContainer = styled.div`
-  width: 10px;
-  height: 10px;
-`;
+export const TextContent = styled.div``;
