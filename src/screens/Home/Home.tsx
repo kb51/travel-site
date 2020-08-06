@@ -3,6 +3,7 @@ import { Container, Title } from './Home.styles';
 import { InfoSection } from '../../components/InfoSection';
 import { Newsletter } from '../../components/Newsletter';
 import { ScrollArrow } from '../../components/ScrollArrow';
+import { Footer } from '../../components/Footer';
 
 export const Home = () => {
   return (
@@ -29,6 +30,7 @@ export const Home = () => {
         background="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"
       />
       <Newsletter />
+      <Footer />
       <ScrollArrow />
     </>
   );

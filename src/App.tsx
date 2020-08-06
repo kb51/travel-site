@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './screens/Home';
 import { NavBar } from './components/NavBar';
 import { Content } from './App.styles';
-import { Itineraries } from './components/Itineraries';
-import { Destinations } from './components/Destinations';
-import { Map } from './components/Map';
-import { Contact } from './components/Contact';
+import { Itineraries } from './screens/Itineraries';
+import { Destinations } from './screens/Destinations';
+import { Map } from './screens/Map';
+import { Contact } from './screens/Contact';
 import { Logout } from './components/Logout';
 
 export default function App() {

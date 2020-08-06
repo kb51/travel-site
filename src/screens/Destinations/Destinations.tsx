@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { List, Image } from 'semantic-ui-react';
 import { Container, Title } from './Destinations.styles';
+import { Footer } from '../../components/Footer';
+
 // import { CountryContext } from '../../contexts/CountryContext.js';
 
 export const Destinations = () => {
@@ -68,6 +70,7 @@ export const Destinations = () => {
           )}
         </List>
       </Container>
+      <Footer />
     </>
   );
 };

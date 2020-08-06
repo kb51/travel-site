@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Title } from './Map.styles';
 import ReactMapGL from 'react-map-gl';
+import { Footer } from '../../components/Footer';
 
 export const Map = () => {
   const [viewport, setViewport] = useState({
@@ -27,6 +28,7 @@ export const Map = () => {
           }}
         />
       </Container>
+      <Footer />
     </>
   );
 };

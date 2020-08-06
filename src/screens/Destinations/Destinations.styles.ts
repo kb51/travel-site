@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   background-image: linear-gradient(white, #f9e6ff);
-  height: 95vh;
-  margin: -20px;
+  height: 100vh;
+  width: 100vw;
   padding: 30px;
 `;
 

@@ -4,6 +4,7 @@ import { Form } from 'semantic-ui-react';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Footer } from '../../components/Footer';
 
 export const Itineraries = () => {
   const [countries, setCountries] = useState([]);
@@ -65,6 +66,7 @@ export const Itineraries = () => {
           <Form.Button>Add</Form.Button>
         </Form>
       </Container>
+      <Footer />
     </>
   );
 };
