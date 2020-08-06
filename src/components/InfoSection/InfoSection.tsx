@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSpring, useTrail, animated } from 'react-spring';
-import handleViewport from 'react-in-viewport';
 
 import { Container, TextContent } from './InfoSection.styles';
 import './infoSection.css';
@@ -12,21 +11,6 @@ interface InfoSectionProps {
   path: string;
   background: string;
 }
-
-const Block = (props: { inViewport: boolean }) => {
-  // @ts-ignore
-  const { inViewport, forwardedRef } = props;
-  const color = inViewport ? '#217ac0' : '#ff9800';
-  const text = inViewport ? 'In viewport' : 'Not in viewport';
-  return (
-    <div className="viewport-block" ref={forwardedRef}>
-      <h3>{text}</h3>
-      <div style={{ width: '400px', height: '300px', background: color }} />
-    </div>
-  );
-};
-
-const ViewportBlock = handleViewport(Block /** options: {}, config: {} **/);
 
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 20,
@@ -58,11 +42,6 @@ export const InfoSection: FC<InfoSectionProps> = ({
   });
   return (
     <Container>
-      <ViewportBlock
-        onEnterViewport={() => console.log('enter')}
-        onLeaveViewport={() => console.log('leave')}
-      />
-
       <TextContent>
         <div>
           {trail.map(({ x, height, ...rest }, index) => (
@@ -80,11 +59,20 @@ export const InfoSection: FC<InfoSectionProps> = ({
           ))}
         </div>
         {/* <h1>{title}</h1>
-        <p>{paragraph}</p> */}
+            <p>{paragraph}</p> */}
         <Link to={path}>
           <button>Click here</button>
         </Link>
       </TextContent>
+      {/* <div>
+        <ViewportBlock
+          onEnterViewport={() => {
+            console.log('enter');
+          }}
+          onLeaveViewport={() => console.log('leave')}
+        />
+      </div> */}
+
       <animated.div
         className="card"
         onMouseMove={({ clientX: x, clientY: y }) =>

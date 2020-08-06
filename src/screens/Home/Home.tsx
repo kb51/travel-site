@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Title } from './Home.styles';
-import { InfoSection } from '../InfoSection';
-import { Newsletter } from '../Newsletter';
-import { ScrollArrow } from '../ScrollArrow';
+import { InfoSection } from '../../components/InfoSection';
+import { Newsletter } from '../../components/Newsletter';
+import { ScrollArrow } from '../../components/ScrollArrow';
 
 export const Home = () => {
   return (

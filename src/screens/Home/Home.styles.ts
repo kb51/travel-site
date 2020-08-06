@@ -13,8 +13,7 @@ export const Container = styled.div`
       no-repeat;
   background-size: cover;
   height: 100vh;
-  margin-left: -20px;
-  margin-right: -20px;
+  width: 100vw;
 `;
 
 export const Title = styled.h1`
@@ -28,4 +27,5 @@ export const Title = styled.h1`
   position: relative;
   margin-left: 60px;
   top: 140px;
+  height: 100vh;
 `;
