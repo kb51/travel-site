@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-image: linear-gradient(white, #f9e6ff);
+  background-image: linear-gradient(#b7dff5, white, white, white, white);
   height: 100vh;
   width: 100vw;
   padding: 30px;

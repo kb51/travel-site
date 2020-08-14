@@ -9,7 +9,7 @@ export const Home = () => {
   return (
     <>
       <Container>
-        <Title>GlobeTrotter</Title>
+        <Title>Map App</Title>
       </Container>
       <InfoSection
         path="/map"
