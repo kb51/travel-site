@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container } from './NavBar.styles';
 // @ts-ignore
-import { Input, Menu } from 'semantic-ui-react';
+import { Menu, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
@@ -61,9 +61,26 @@ export const NavBar = () => {
         </Link>
 
         <Menu.Menu position="right">
-          <Menu.Item>
-            <Input icon="search" placeholder="Search..." />
-          </Menu.Item>
+          <Dropdown
+            button
+            className="icon"
+            floating
+            labeled
+            icon="world"
+            options={[
+              { key: 'Italian', text: 'Italian', value: 'Italian' },
+              { key: 'French', text: 'French', value: 'French' },
+              { key: 'English', text: 'English', value: 'English' },
+              {
+                key: 'Southern Min (inc. Hokkien and Teochew)',
+                text: 'Southern Min (inc. Hokkien and Teochew)',
+                value: 'Southern Min (inc. Hokkien and Teochew)',
+              },
+            ]}
+            search
+            text="Select Language"
+            fluid
+          />
 
           <Link to="/logout">
             <Menu.Item
