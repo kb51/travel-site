@@ -1,7 +1,16 @@
+// @ts-nocheck
 import React, { FC } from 'react';
 import { Container } from './Footer.styles';
 import { Grid, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+
+const socialMedia = {
+  'facebook square': 'https://www.facebook.com',
+  instagram: 'https://www.instagram.com',
+  'twitter square': 'https://www.twitter.com',
+  'google play': 'https://www.google.com',
+  'app store ios': 'https://www.apple.com',
+};
 
 export const Footer: FC = () => {
   return (
@@ -20,12 +29,14 @@ export const Footer: FC = () => {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column>
-            <Icon name="facebook square" />
-            <Icon name="instagram" />
-            <Icon name="twitter square" />
-            <Icon name="mail" />
-            <Icon name="google play" />
-            <Icon name="app store ios" />
+            {Object.keys(socialMedia).map((key) => {
+              console.log(key);
+              return (
+                <a target="blank" href={socialMedia[key]}>
+                  <Icon color="black" name={key} />
+                </a>
+              );
+            })}
           </Grid.Column>
           <Grid.Column>
             <Link to="/">Home</Link>
