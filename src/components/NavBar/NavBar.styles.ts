@@ -5,5 +5,4 @@ export const Container = styled.div`
   padding: 20px 60px;
   margin-left: -20px;
   margin-right: -20px;
-  font-family: 'Acme', sans-serif;
 `;

@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSpring, useTrail, animated } from 'react-spring';
+import { Button } from 'semantic-ui-react';
 
 import { Container, TextContent } from './InfoSection.styles';
 import './infoSection.css';
@@ -61,7 +62,9 @@ export const InfoSection: FC<InfoSectionProps> = ({
         {/* <h1>{title}</h1>
             <p>{paragraph}</p> */}
         <Link to={path}>
-          <button>Click here</button>
+          <Button basic color="pink">
+            Click here
+          </Button>
         </Link>
       </TextContent>
       {/* <div>
