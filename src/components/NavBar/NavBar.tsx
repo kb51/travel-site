@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container } from './NavBar.styles';
 // @ts-ignore
-import { Menu, Dropdown, Button } from 'semantic-ui-react';
+import { Menu, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
@@ -61,11 +61,6 @@ export const NavBar = () => {
         </Link>
 
         <Menu.Menu position="right">
-          <Button.Group>
-            <Button icon="moon" />
-
-            <Button positive icon="sun" />
-          </Button.Group>
           <Dropdown
             button
             className="icon"
