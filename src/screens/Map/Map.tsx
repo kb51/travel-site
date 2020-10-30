@@ -7,8 +7,28 @@ import ReactMapGL, {
   ScaleControl,
 } from 'react-map-gl';
 import Pins from './Pins';
-
 import { Footer } from '../../components/Footer';
+
+const fullscreenControlStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  padding: '10px',
+};
+
+const navStyle = {
+  position: 'absolute',
+  top: 36,
+  left: 0,
+  padding: '10px',
+};
+
+const scaleControlStyle = {
+  position: 'absolute',
+  bottom: 36,
+  left: 0,
+  padding: '10px',
+};
 
 export const Map = () => {
   const [viewport, setViewport] = useState({
@@ -20,6 +40,12 @@ export const Map = () => {
     width: '100%',
     height: '90%',
   });
+
+  const [popupInfo, setPopUpInfo] = useState(null);
+
+  const _onClickMarker = (country) => {
+    setPopUpInfo(country);
+  };
 
   return (
     <>
