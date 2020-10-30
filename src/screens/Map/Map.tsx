@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Title } from './Map.styles';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, {
+  Popup,
+  NavigationControl,
+  FullscreenControl,
+  ScaleControl,
+} from 'react-map-gl';
+import Pins from './Pins';
+
 import { Footer } from '../../components/Footer';
 
 export const Map = () => {
