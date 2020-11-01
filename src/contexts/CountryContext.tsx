@@ -14,8 +14,6 @@ export function CountryProvider({ children }) {
       });
   }, []);
 
-  console.log(`Context is ${countries}`);
-
   return (
     <CountryContext.Provider value={[countries, setCountries]}>
       {children}

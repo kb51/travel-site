@@ -30,7 +30,6 @@ export const Footer: FC = () => {
         <Grid.Row>
           <Grid.Column>
             {Object.keys(socialMedia).map((key) => {
-              console.log(key);
               return (
                 <a target="blank" href={socialMedia[key]}>
                   <Icon color="black" name={key} />

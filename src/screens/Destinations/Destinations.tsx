@@ -11,13 +11,9 @@ export const Destinations = () => {
 
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-  console.log(countries);
-
   const filteredCountries = countries.filter(
     (country) => country.name[0] === filterValue
   );
-
-  console.log(filterValue);
 
   return (
     <>

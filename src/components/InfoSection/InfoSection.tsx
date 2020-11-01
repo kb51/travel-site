@@ -59,22 +59,14 @@ export const InfoSection: FC<InfoSectionProps> = ({
             </animated.div>
           ))}
         </div>
-        {/* <h1>{title}</h1>
-            <p>{paragraph}</p> */}
+
         <Link to={path}>
           <Button basic color="pink">
             Click here
           </Button>
         </Link>
       </TextContent>
-      {/* <div>
-        <ViewportBlock
-          onEnterViewport={() => {
-            console.log('enter');
-          }}
-          onLeaveViewport={() => console.log('leave')}
-        />
-      </div> */}
+
 
       <animated.div
         className="card"
