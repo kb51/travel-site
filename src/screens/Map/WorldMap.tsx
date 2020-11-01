@@ -1,14 +1,15 @@
 import React, { useContext, useState } from 'react';
-import ReactMapGL, {
+import MapGL, {
   Popup,
   NavigationControl,
   FullscreenControl,
   ScaleControl,
 } from 'react-map-gl';
 import Pins from './Pins';
-import { Footer } from '../../components/Footer';
-import { MapContext } from '../../contexts/MapContext';
 import PinInfo from './PinInfo';
+import { MapContext } from '../../contexts/MapContext';
+
+import AddDestination from './Modal';
 import {
   Container,
   Title,
@@ -17,7 +18,7 @@ import {
   ScaleControlWrapper,
 } from './Map.styles';
 
-export const Map = () => {
+export function WorldMap() {
   const [viewport, setViewport] = useState({
     latitude: 51.4934,
     longitude: -0.0005,
@@ -28,30 +29,29 @@ export const Map = () => {
     height: '90%',
   });
 
-  const [popupInfo, setPopUpInfo] = useState(null);
-
   const _onClickMarker = (country) => {
     setPopUpInfo(country);
   };
+  const [popupInfo, setPopUpInfo] = useState<any>();
 
-  const mapContext = useContext(MapContext);
+  const { visited, bucketlist } = useContext(MapContext);
 
-  const { visitedCountries, setVisitedCountries } = mapContext.visited;
-  const { bucketlistCountries, setBucketlistCountries } = mapContext.bucketlist;
+  const { visitedCountries, setVisitedCountries } = visited;
+  const { bucketlistCountries, setBucketlistCountries } = bucketlist;
 
   return (
-    <>
-      <Container>
-        <Title>Map</Title>
-        <ReactMapGL
-          {...viewport}
-          mapStyle="mapbox://styles/kb51/ckawuxjic00to1ipp60a37454"
-          mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
-          onViewportChange={(viewport) => {
-            // @ts-ignore
-            setViewport(viewport);
-          }}
-        />
+    <Container>
+      <Title>Map</Title>
+      <AddDestination />
+      <MapGL
+        {...viewport}
+        mapStyle="mapbox://styles/kb51/ckawuxjic00to1ipp60a37454"
+        onViewportChange={(viewport) => {
+          // @ts-ignore
+          setViewport(viewport);
+        }}
+        mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
+      >
         <Pins
           color="limegreen"
           data={visitedCountries}
@@ -62,7 +62,6 @@ export const Map = () => {
           data={bucketlistCountries}
           onClick={_onClickMarker}
         />
-
         {popupInfo ? (
           <Popup
             tipSize={5}
@@ -82,7 +81,6 @@ export const Map = () => {
             />
           </Popup>
         ) : null}
-
         <FullscreenControlWrapper>
           <FullscreenControl />
         </FullscreenControlWrapper>
@@ -92,8 +90,7 @@ export const Map = () => {
         <ScaleControlWrapper>
           <ScaleControl />
         </ScaleControlWrapper>
-      </Container>
-      <Footer />
-    </>
+      </MapGL>
+    </Container>
   );
-};
+}

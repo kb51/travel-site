@@ -17,6 +17,9 @@ interface PinsProps {
 export default class Pins extends PureComponent<PinsProps> {
   render() {
     const { data, onClick, color } = this.props;
+    console.log('datadatadatadatadatadatadatadata is: ', data);
+
+    if (!data.length) return <></>;
 
     return data.map((country, index) => (
       <Marker

@@ -5,10 +5,11 @@ import { NavBar } from './components/NavBar';
 import { Content } from './App.styles';
 import { Itineraries } from './screens/Itineraries';
 import { Destinations } from './screens/Destinations';
-import { Map } from './screens/Map';
+import { WorldMap } from './screens/Map';
 import { Contact } from './screens/Contact';
 import { Logout } from './components/Logout';
 import { CountryProvider } from './contexts/CountryContext';
+import { MapProvider } from './contexts/MapContext';
 
 export default function App() {
   return (
@@ -17,14 +18,16 @@ export default function App() {
         <Router>
           <NavBar />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/map" component={Map} />
-            <CountryProvider>
-              <Route path="/destinations" component={Destinations} />
-            </CountryProvider>
-            <Route path="/itineraries" component={Itineraries} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/logout" component={Logout} />
+            <MapProvider>
+              <CountryProvider>
+                <Route exact path="/" component={Home} />
+                <Route path="/map" component={WorldMap} />
+                <Route path="/destinations" component={Destinations} />
+                <Route path="/itineraries" component={Itineraries} />
+                <Route path="/contact" component={Contact} />
+                <Route path="/logout" component={Logout} />
+              </CountryProvider>
+            </MapProvider>
           </Switch>
         </Router>
       </Content>

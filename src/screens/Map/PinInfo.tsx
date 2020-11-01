@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container } from './Map.styles';
+import { PinInfoContainer } from './Map.styles';
 import { Button } from 'semantic-ui-react';
 
 function PinInfo({
@@ -64,10 +64,10 @@ function PinInfo({
 
   return (
     <>
-      <Container>
+      <PinInfoContainer>
         <span>{displayName}</span>
         <img src={country.flag} width={20} alt="flag" />
-      </Container>
+      </PinInfoContainer>
       {isEditOn ? (
         <input type="text" value={notesValue} onChange={handleUpdateNotes} />
       ) : (

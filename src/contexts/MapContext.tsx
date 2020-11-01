@@ -1,27 +1,34 @@
 import React, { useState, createContext, Dispatch } from 'react';
 import { CountryData } from '../types/countries';
-interface Visited {
-  visitedCountries: CountryData[];
-  setVisitedCountries: Dispatch<CountryData[]>;
-}
 
-interface Bucketlist {
-  bucketlistCountries: CountryData[];
-  setBucketlistCountries: Dispatch<CountryData[]>;
+interface UserCountryData {
+  country: CountryData;
+  notes: string;
 }
 
 interface InitMapContextProps {
-  visited: Visited;
-  bucketlist: Bucketlist;
+  visited: {
+    visitedCountries: UserCountryData[];
+    setVisitedCountries: Dispatch<UserCountryData[]>;
+  };
+  bucketlist: {
+    bucketlistCountries: UserCountryData[];
+    setBucketlistCountries: Dispatch<UserCountryData[]>;
+  };
 }
 
-export const MapContext = createContext({} as InitMapContextProps);
+// @ts-ignore
+export const MapContext = createContext<InitMapContextProps>(
+  {} as InitMapContextProps
+);
 
 export function MapProvider({ children }) {
-  const [visitedCountries, setVisitedCountries] = useState<CountryData[]>([]);
-  const [bucketlistCountries, setBucketlistCountries] = useState<CountryData[]>(
+  const [visitedCountries, setVisitedCountries] = useState<UserCountryData[]>(
     []
   );
+  const [bucketlistCountries, setBucketlistCountries] = useState<
+    UserCountryData[]
+  >([]);
 
   return (
     <MapContext.Provider

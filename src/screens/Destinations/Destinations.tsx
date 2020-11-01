@@ -9,6 +9,8 @@ export const Destinations = () => {
 
   const { countries } = useContext(CountryContext);
 
+  console.log('countries is: ', countries);
+
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   const filteredCountries = countries.filter(
