@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Container, Title } from './Map.styles';
+import React, { useContext, useState } from 'react';
 import ReactMapGL, {
   Popup,
   NavigationControl,
@@ -8,27 +7,15 @@ import ReactMapGL, {
 } from 'react-map-gl';
 import Pins from './Pins';
 import { Footer } from '../../components/Footer';
-
-const fullscreenControlStyle = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  padding: '10px',
-};
-
-const navStyle = {
-  position: 'absolute',
-  top: 36,
-  left: 0,
-  padding: '10px',
-};
-
-const scaleControlStyle = {
-  position: 'absolute',
-  bottom: 36,
-  left: 0,
-  padding: '10px',
-};
+import { MapContext } from '../../contexts/MapContext';
+import PinInfo from './PinInfo';
+import {
+  Container,
+  Title,
+  NavWrapper,
+  FullscreenControlWrapper,
+  ScaleControlWrapper,
+} from './Map.styles';
 
 export const Map = () => {
   const [viewport, setViewport] = useState({
@@ -47,6 +34,11 @@ export const Map = () => {
     setPopUpInfo(country);
   };
 
+  const mapContext = useContext(MapContext);
+
+  const { visitedCountries, setVisitedCountries } = mapContext.visited;
+  const { bucketlistCountries, setBucketlistCountries } = mapContext.bucketlist;
+
   return (
     <>
       <Container>
@@ -60,6 +52,46 @@ export const Map = () => {
             setViewport(viewport);
           }}
         />
+        <Pins
+          color="limegreen"
+          data={visitedCountries}
+          onClick={_onClickMarker}
+        />
+        <Pins
+          color="dodgerblue"
+          data={bucketlistCountries}
+          onClick={_onClickMarker}
+        />
+
+        {popupInfo ? (
+          <Popup
+            tipSize={5}
+            anchor="top"
+            longitude={popupInfo.country.latlng[1]}
+            latitude={popupInfo.country.latlng[0]}
+            closeOnClick={false}
+            onClose={() => setPopUpInfo(null)}
+          >
+            <PinInfo
+              setPopUpInfo={setPopUpInfo}
+              visitedCountries={visitedCountries}
+              setVisitedCountries={setVisitedCountries}
+              bucketlistCountries={bucketlistCountries}
+              setBucketlistCountries={setBucketlistCountries}
+              info={popupInfo}
+            />
+          </Popup>
+        ) : null}
+
+        <FullscreenControlWrapper>
+          <FullscreenControl />
+        </FullscreenControlWrapper>
+        <NavWrapper>
+          <NavigationControl />
+        </NavWrapper>
+        <ScaleControlWrapper>
+          <ScaleControl />
+        </ScaleControlWrapper>
       </Container>
       <Footer />
     </>
