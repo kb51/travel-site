@@ -1,26 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { List, Image } from 'semantic-ui-react';
 import { Container, Title } from './Destinations.styles';
 import { Footer } from '../../components/Footer';
-
-// import { CountryContext } from '../../contexts/CountryContext.js';
+import { CountryContext } from '../../contexts/CountryContext';
 
 export const Destinations = () => {
-  const [countries, setCountries] = useState([]);
   const [filterValue, setFilterValue] = useState('A');
 
-  useEffect(() => {
-    fetch('https://restcountries.eu/rest/v2/all')
-      .then((res) => res.json())
-      .then((json) => {
-        setCountries(json);
-      });
-  }, []);
+  const [countries] = useContext(CountryContext);
 
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
+  console.log(countries);
+
   const filteredCountries = countries.filter(
-    (country: any) => country.name[0] === filterValue
+    (country) => country.name[0] === filterValue
   );
 
   console.log(filterValue);

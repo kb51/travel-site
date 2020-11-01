@@ -8,6 +8,7 @@ import { Destinations } from './screens/Destinations';
 import { Map } from './screens/Map';
 import { Contact } from './screens/Contact';
 import { Logout } from './components/Logout';
+import { CountryProvider } from './contexts/CountryContext';
 
 export default function App() {
   return (
@@ -18,7 +19,9 @@ export default function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/map" component={Map} />
-            <Route path="/destinations" component={Destinations} />
+            <CountryProvider>
+              <Route path="/destinations" component={Destinations} />
+            </CountryProvider>
             <Route path="/itineraries" component={Itineraries} />
             <Route path="/contact" component={Contact} />
             <Route path="/logout" component={Logout} />

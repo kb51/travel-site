@@ -1,9 +1,10 @@
 import React, { useState, useEffect, createContext } from 'react';
-// @ts-ignore
-export const CountryContext = createContext();
+import { CountryData } from '../types/countries';
+
+export const CountryContext = createContext<any>([]);
 
 export function CountryProvider({ children }) {
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState<CountryData[]>([]);
 
   useEffect(() => {
     fetch('https://restcountries.eu/rest/v2/all')
@@ -12,6 +13,8 @@ export function CountryProvider({ children }) {
         setCountries(json);
       });
   }, []);
+
+  console.log(`Context is ${countries}`);
 
   return (
     <CountryContext.Provider value={[countries, setCountries]}>
