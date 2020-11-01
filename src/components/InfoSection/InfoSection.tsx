@@ -67,7 +67,6 @@ export const InfoSection: FC<InfoSectionProps> = ({
         </Link>
       </TextContent>
 
-
       <animated.div
         className="card"
         onMouseMove={({ clientX: x, clientY: y }) =>
