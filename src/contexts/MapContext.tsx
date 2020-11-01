@@ -1,15 +1,18 @@
 import React, { useState, createContext, Dispatch } from 'react';
 import { CountryData } from '../types/countries';
+interface Visited {
+  visitedCountries: CountryData[];
+  setVisitedCountries: Dispatch<CountryData[]>;
+}
+
+interface Bucketlist {
+  bucketlistCountries: CountryData[];
+  setBucketlistCountries: Dispatch<CountryData[]>;
+}
 
 interface InitMapContextProps {
-  visited: {
-    visitedCountries: CountryData[];
-    setVisitedCountries: Dispatch<CountryData[]>;
-  };
-  bucketlist: {
-    bucketlistCountries: CountryData[];
-    setBucketlistCountries: Dispatch<CountryData[]>;
-  };
+  visited: Visited;
+  bucketlist: Bucketlist;
 }
 
 export const MapContext = createContext({} as InitMapContextProps);
