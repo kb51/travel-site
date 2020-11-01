@@ -7,7 +7,7 @@ import { CountryContext } from '../../contexts/CountryContext';
 export const Destinations = () => {
   const [filterValue, setFilterValue] = useState('A');
 
-  const [countries] = useContext(CountryContext);
+  const { countries } = useContext(CountryContext);
 
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 

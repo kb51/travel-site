@@ -1,7 +1,12 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext, Dispatch } from 'react';
 import { CountryData } from '../types/countries';
 
-export const CountryContext = createContext<any>([]);
+interface InitCountryContextProps {
+  countries: CountryData[];
+  setCountries: Dispatch<CountryData[]>;
+}
+
+export const CountryContext = createContext({} as InitCountryContextProps);
 
 export function CountryProvider({ children }) {
   const [countries, setCountries] = useState<CountryData[]>([]);
@@ -15,7 +20,7 @@ export function CountryProvider({ children }) {
   }, []);
 
   return (
-    <CountryContext.Provider value={[countries, setCountries]}>
+    <CountryContext.Provider value={{ countries, setCountries }}>
       {children}
     </CountryContext.Provider>
   );
