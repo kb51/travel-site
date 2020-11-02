@@ -5,7 +5,7 @@ import { NavBar } from './components/NavBar';
 import { Content } from './App.styles';
 import { Itineraries } from './screens/Itineraries';
 import { Destinations } from './screens/Destinations';
-import { WorldMap } from './screens/Map';
+import { WorldMap } from './screens/WorldMap';
 import { Contact } from './screens/Contact';
 import { Logout } from './components/Logout';
 import { CountryProvider } from './contexts/CountryContext';
