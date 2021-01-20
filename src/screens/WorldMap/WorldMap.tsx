@@ -35,10 +35,12 @@ export function WorldMap() {
   };
   const [popupInfo, setPopUpInfo] = useState<any>();
 
-  const { visited, bucketlist } = useContext(MapContext);
-
-  const { visitedCountries, setVisitedCountries } = visited;
-  const { bucketlistCountries, setBucketlistCountries } = bucketlist;
+  const {
+    visitedCountries,
+    setVisitedCountries,
+    bucketlistCountries,
+    setBucketlistCountries,
+  } = useContext(MapContext);
 
   return (
     <>

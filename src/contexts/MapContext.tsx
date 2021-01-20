@@ -7,17 +7,12 @@ interface UserCountryData {
 }
 
 interface InitMapContextProps {
-  visited: {
-    visitedCountries: UserCountryData[];
-    setVisitedCountries: Dispatch<UserCountryData[]>;
-  };
-  bucketlist: {
-    bucketlistCountries: UserCountryData[];
-    setBucketlistCountries: Dispatch<UserCountryData[]>;
-  };
+  visitedCountries: UserCountryData[];
+  setVisitedCountries: Dispatch<UserCountryData[]>;
+  bucketlistCountries: UserCountryData[];
+  setBucketlistCountries: Dispatch<UserCountryData[]>;
 }
 
-// @ts-ignore
 export const MapContext = createContext<InitMapContextProps>(
   {} as InitMapContextProps
 );
@@ -33,8 +28,10 @@ export function MapProvider({ children }) {
   return (
     <MapContext.Provider
       value={{
-        visited: { visitedCountries, setVisitedCountries },
-        bucketlist: { bucketlistCountries, setBucketlistCountries },
+        visitedCountries,
+        setVisitedCountries,
+        bucketlistCountries,
+        setBucketlistCountries,
       }}
     >
       {children}

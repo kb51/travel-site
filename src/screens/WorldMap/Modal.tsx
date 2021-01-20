@@ -10,9 +10,12 @@ function AddDestination() {
 
   const { countries } = useContext(CountryContext);
 
-  const mapContext = useContext(MapContext);
-  const { visitedCountries, setVisitedCountries } = mapContext.visited;
-  const { bucketlistCountries, setBucketlistCountries } = mapContext.bucketlist;
+  const {
+    visitedCountries,
+    setVisitedCountries,
+    bucketlistCountries,
+    setBucketlistCountries,
+  } = useContext(MapContext);
 
   const [country, setCountry] = useState<CountryData | null>(null);
   const [isHaveBeenThere, setIsHaveBeenThere] = useState(true);
@@ -36,11 +39,6 @@ function AddDestination() {
   function handleSubmit() {
     if (!country) return;
 
-    console.log('handling suvbmit now...');
-    console.log(
-      'visitedCountries.concat({ country, notes }) is: ',
-      visitedCountries.concat({ country, notes })
-    );
     isHaveBeenThere
       ? setVisitedCountries(visitedCountries.concat({ country, notes }))
       : setBucketlistCountries(bucketlistCountries.concat({ country, notes }));
